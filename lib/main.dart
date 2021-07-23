@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -5,6 +6,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  String name = 'Vang IT';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,6 +26,35 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  GlobalKey globalTextKey = new GlobalKey();
+  GlobalKey globalButtonKey = new GlobalKey();
+
+  double width = 50;
+  double height = 50;
+
+  _onClick() {
+    RenderBox renderBox =
+        globalTextKey.currentContext?.findRenderObject() as RenderBox;
+
+    print(renderBox.size);
+    print(renderBox.localToGlobal(Offset.zero));
+
+    MyApp app = globalButtonKey.currentContext
+        ?.findAncestorWidgetOfExactType<MyApp>() as MyApp;
+    print(app.name);
+
+    setState(() {
+      width = width + 10;
+      height = height + 10;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,12 +62,27 @@ class _HomePageState extends State<HomePage> {
         title: Text('Hello, World!'),
         centerTitle: true,
       ),
-      body: Container(
-        color: Colors.pink,
-        child: Align(
-          alignment: Alignment.center,
-          child: Text('Hello, World!!!'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Hello, World!!!',
+              key: globalTextKey,
+            ),
+            Container(
+              color: Colors.blue,
+              width: width,
+              height: height,
+            )
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _onClick,
+        key: globalButtonKey,
+        tooltip: 'Click',
+        child: Icon(Icons.add),
       ),
     );
   }
