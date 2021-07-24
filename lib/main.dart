@@ -29,7 +29,7 @@ class _HomeState extends State<Home> {
         centerTitle: true,
       ),
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
