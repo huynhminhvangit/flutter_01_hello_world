@@ -32,18 +32,30 @@ class _HomeState extends State<Home> {
         centerTitle: true,
       ),
       body: Center(
-        child: Container(
+        child: Stack(
           alignment: Alignment.center,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            border: Border.all(width: 5, color: Colors.red,style: BorderStyle.solid),
-            shape: BoxShape.circle,
-            color: Colors.blue
-          ),
-          transform: Matrix4.rotationZ(30 * pi / 180),
-          width: 200,
-          height: 200,
-          child: Text('Bai 5',style: TextStyle(color: Colors.white70, fontSize: 20),),
+          children: [
+            Container(
+              width: 400,
+              height: 400,
+              color: Colors.green,
+            ),
+            Container(
+              width: 300,
+              height: 300,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 200,
+              height: 200,
+              color: Colors.red,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.yellow,
+            ),
+          ],
         ),
       ),
     );
