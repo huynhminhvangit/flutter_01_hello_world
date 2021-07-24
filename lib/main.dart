@@ -8,33 +8,47 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Hello, World!',
-      theme: ThemeData(
-        primaryColor: Colors.blue,
-      ),
-      home: HomePage(),
+      title: 'Bai 6',
+      theme: ThemeData(primaryColor: Colors.blue.shade100),
+      home: Home(),
     );
   }
 }
 
-class HomePage extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomeState createState() => _HomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello, World!'),
+        title: Text('Bai 6'),
         centerTitle: true,
       ),
-      body: Container(
-        color: Colors.pink,
-        child: Align(
-          alignment: Alignment.center,
-          child: Text('Hello, World!!!'),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 120,
+              height: 120,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.red,
+            ),
+            Container(
+              width: 80,
+              height: 80,
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );
